@@ -19,7 +19,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search Product"
-              className="w-full border py-2 px-4"
+              className="w-full border rounded-2xl shadow-white border-gray-400 py-2 px-4"
             />
             <LuSearch className="absolute top-3 right-3 text-red-500" />
           </form>
