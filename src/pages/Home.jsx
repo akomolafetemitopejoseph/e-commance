@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Categories } from "../assets/MockData";
 import heroimage from "../assets/heroimage.jpg";
 import InforSection from "../Component/InforSection";
 import CategorySection from "../Component/CategorySection";
+import { setProducts } from "../Redus/CartSlide";
+import { useDispatch, useSelector } from "react-redux";
+import { mackData } from "../Component/MackData";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product);
+  useEffect(() => {
+    dispatch(setProducts(mackData));
+  });
   return (
     <div className="bg-white  mt-2 px-4 md:px-16 lg:px-24 ">
       <div className="mx-auto py-4 flex flex-col md:flex-row space-x-2">
@@ -38,6 +46,13 @@ const Home = () => {
       </div>
       <InforSection />
       <CategorySection />
+      <div>
+        <h2>top product</h2>
+        <div>
+          {products.products.sclice(0, 5).map(((product) =>( <div>{product.Categories}</div>
+          )))}
+        </div>
+      </div>
     </div>
   );
 };
