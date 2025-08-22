@@ -1,13 +1,13 @@
 import image1 from "../assets/camera.jpg";
 import image2 from "../assets/laptop.jpg";
-import image3 from "../assets/phone'jpg";
+import image3 from "../assets/phone.jpg";
 import image4 from "../assets/polo.jpg";
 import image5 from "../assets/snicker.jpg";
 import image6 from "../assets/shirt.jpg";
 import image7 from "../assets/T.shirt.jpg";
 import image8 from "../assets/snicker2.jpg";
 import image9 from "../assets/womenshoe.jpg";
-import image10 from "../assets/.jpg";
+import image10 from "../assets/jeans.jpg";
 
 export const mackData = [
   { id: 1, image: image1, name: "product 1", price: 29.99 },
