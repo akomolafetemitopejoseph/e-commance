@@ -3,7 +3,7 @@ import { IoStarOutline } from "react-icons/io5";
 
 const ProductCards = ({ product }) => {
   return (
-    <div className="bg-white p-4  shadow rounded relative border-gray-900 transform transition-transform duration-300 hover:scale-105">
+    <div className="bg-white p-4  shadow rounded relative border-gray-9333q1q`1``00 transform transition-transform duration-300 hover:scale-105">
       <img
         src={product.image}
         alt="productImage"
