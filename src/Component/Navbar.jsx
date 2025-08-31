@@ -7,7 +7,7 @@ import { IoPeopleSharp } from "react-icons/io5";
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-md">
-      <div className="mx-auto p-3 md:px-16 lg:px-2 flex justify-between items-center">
+      <div className="mx-auto p-3 md:px-16 lg:px-24 flex justify-between items-center">
         <div className="text-lg font-bold">
           <Link to="/">
             <h1>e-Shop</h1>

@@ -18,7 +18,6 @@ const Home = () => {
 
   return (
     <>
-      {" "}
       <div className="bg-white  mt-2 px-4 md:px-16 lg:px-24 ">
         <div className="mx-auto py-4 flex flex-col md:flex-row space-x-2">
           <div className="w-full md:w-3/12">
@@ -31,18 +30,18 @@ const Home = () => {
                   key={index}
                   className="flex items-center text-sm font-medium"
                 >
-                  <div></div>
+                  <div className="w-2 h-2 border border-red-500 rounded-full mr-2"></div>
                   {category}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="max-w-full md:w-9/12 mt-8 md:mt-0 h-96 relative">
+          <div className="max-w-full md:w-10/12 mt-8 md:mt-0 h-96 relative">
             <img src={heroimage} alt="image" className="h-full w-full" />
 
             <div className="absolute top-16 left-8">
               <p className="text-gray-600 mb-4 capitalize">
-                code with your self
+                shop for your self
               </p>
               <h2 className="text-2xl font-bold uppercase">
                 welcome to e-shop

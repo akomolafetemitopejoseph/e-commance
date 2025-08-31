@@ -42,7 +42,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="text-lg font-semibold">
-          <h4 className="text-lg font-semibold capitalize">follown us</h4>
+          <h4 className="text-lg font-semibold capitalize">follown u :</h4>
           <div className="flex space-x-4 mt-4 mb-10">
             <a href="" className="hover:text-gray-400">
               <FaFacebookF />
@@ -75,11 +75,11 @@ const Footer = () => {
       </div>
       <div className="mt-8 border-t bordre-gray-400 pt-4">
         <div className="mx-auto flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; 2024 e-shop All right reserved</p>
+          <p>&copy; 2025 e-shop All right reserved</p>
 
           <div className="flex space-x-8 mt-4 md:mt-0">
-            <a href="" className="hover:underline">privacy policy</a>
-            <a href="" className="hover:underline">terms & conditions</a>
+            <a href="" className="hover:underline capitalize">privacy policy</a>
+            <a href="" className="hover:underline capitalize">terms & conditions</a>
           </div>
         </div>
       </div>
