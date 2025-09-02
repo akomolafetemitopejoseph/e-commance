@@ -12,7 +12,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCard(state, action) {
       const newItem = action.payload;
-      const itemIndex = state.products.find(() => itemIndex.id === newItem.id);
+      const itemIndex = state.products.find((item) => item.id === newItem.id);
 
       if (itemIndex) {
         itemIndex.quantity++;
@@ -28,7 +28,7 @@ const cartSlice = createSlice({
         });
       }
       state.totalPrice += newItem.price;
-      state.totalQuantity;
+      state.totalQuantity++;
     },
   },
 });

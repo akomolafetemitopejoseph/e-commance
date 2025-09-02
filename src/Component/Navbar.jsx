@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { LuSearch } from "react-icons/lu";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoPeopleSharp } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const products = useSelector((state) => state.cart.products);
   return (
     <nav className="bg-white shadow-md">
       <div className="mx-auto p-3 md:px-16 lg:px-24 flex justify-between items-center">
@@ -25,8 +27,9 @@ const Navbar = () => {
           </form>
         </div>
         <div className="flex items-center space-x-4">
-          <Link to="/cart">
+          <Link to="/cart" className="relative">
             <FaShoppingCart className="text-lg" />
+            {products.length > 0 && <span className="absolute top-0 text-xs w-3 left-3 bg-red-600 rounded-full flex justify-center items-center text-white">{products.length}</span>}
           </Link>
           <button className="hidden md:block capitalize">
             login | register
@@ -38,19 +41,15 @@ const Navbar = () => {
       </div>
       <div className="flex items-center justify-center space-x-10 py-4 text-sm font-black capitalize">
         <Link to="/" className="hover:underline">
-          {" "}
           home
         </Link>
         <Link to="/shop" className="hover:underline">
-          {" "}
           shop
         </Link>
         <Link to="/" className="hover:underline">
-          {" "}
           contact
         </Link>
         <Link to="/" className="hover:underline">
-          {" "}
           About
         </Link>
       </div>

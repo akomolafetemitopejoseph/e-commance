@@ -6,10 +6,10 @@ import { useDispatch } from "react-redux";
 const ProductCards = ({ product }) => {
   const dispatch = useDispatch();
   const handleAddToCard = (e, product) => {
-    e.stopPrpagation();
+    e.stopPropagation();
     e.preventDefault();
     dispatch(addToCard(product));
-    alert("Product Added Sucessfully!");
+    alert("Product Added Sucessfully 😀!");
   };
   return (
     <div className="bg-white p-4  shadow rounded relative border-gray-9333q1q`1``00 transform transition-transform duration-300 hover:scale-105">
