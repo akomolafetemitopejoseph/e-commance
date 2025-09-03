@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import emptyBox from "../assets/emptyBox.png";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Modal from "../Component/Modal";
+import ChangeAddress from "../Component/ChangeAddress";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [address, setAddress] = useState("main stret, 0012");
+  const [isModelopen, setModelopen] = useState(false);
   return (
     <div className="mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
       {cart.products.length > 0 ? (
@@ -68,19 +71,26 @@ const Cart = () => {
                 <p>Shopping</p>
                 <p className="ml-2">Shippimg to :</p>
                 <span className="text-xs font-bold">{address}</span>
-                <button className="text-blue-500 hover:underline mt-l ml-12">
+                <button
+                  className="text-blue-500 hover:underline mt-l ml-12"
+                  onClick={() => setModelopen(true)}
+                >
                   Change address
                 </button>
               </div>
               <div className="flex justify-between mb-4">
                 <span>Total price</span>
-                <span>${cart.totalPrice}</span>
+                <span>${cart.totalPrice.toFixed(2)}</span>
               </div>
               <button className="w-full bg-red-600 text-white py-2 hover:bg-red-800">
                 Proced checkout
               </button>
             </div>
           </div>
+
+          <Modal isModelopen={isModelopen} setModelopen={setModelopen}>
+            <ChangeAddress setAddress={setAddress} setModelopen= {setModelopen} />
+          </Modal>
         </div>
       ) : (
         <div className="flex justify-center">
