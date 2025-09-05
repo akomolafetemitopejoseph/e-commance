@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const ChangeAddress = (setAddress, setModelopen) => {
   const [newAddress, setNewAddress] = useState("");
-  // const onClose = () => {
-  //   setAddress(newAddress);
-  //   setModelopen(false);
-  // };
+  const onClose = () => {
+    setAddress(newAddress);
+    setModelopen(false);
+  };
   return (
     <div>
       <input
@@ -23,7 +23,7 @@ const ChangeAddress = (setAddress, setModelopen) => {
         </button>
         <button
           className="bg-blue-700 ml-2 text-white py-2 px-4 rounded"
-          onClick={() => setAddress(newAddress)}
+          onClick={onClose}
         >
           Save Address
         </button>
