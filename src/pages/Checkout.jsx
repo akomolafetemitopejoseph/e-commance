@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 
-const Checkout = () => {
+const Checkout = ({ setOrder }) => {
   const [billingToggle, setBillingToggle] = useState(true);
   const [shippingToggle, setShippingToggle] = useState(false);
   const [paymentToggle, setpaymentToggle] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const cart = useSelector((state) => state.cart);
-  const [shippingIfor, setShippingInfo] = useState({
-    shipping: "",
+  const [shippingIfor, setShippingInfor] = useState({
+    address: "",
+    city: "",
     zip: "",
   });
+
+  const navigate = useNavigate();
+
+  const handleOrder = () => {
+    const newOrder = {
+      products: cart.products,
+      orderNumber: "12344",
+      shippinginformation: shippingIfor,
+      totalPrice: cart.totalPrice,
+    };
+
+    setOrder(newOrder);
+    navigate("/order-confirmation");
+  };
 
   return (
     <div>
@@ -77,11 +93,11 @@ const Checkout = () => {
                   <label className="block text-gray-700">Address</label>
                   <input
                     type="text"
-                    name="name"
+                    name="address"
                     placeholder="Enter Address"
                     className="border border-gray-300 w-full p-2"
                     onChange={(e) =>
-                      setShippingInfo({
+                      setShippingInfor({
                         ...shippingIfor,
                         address: e.target.value,
                       })
@@ -91,11 +107,11 @@ const Checkout = () => {
                 <div>
                   <label className="block text-gray-700">City</label>
                   <input
-                    type="email"
-                    name="name"
+                    type="text"
+                    name="city"
                     placeholder="Enter City"
                     className="border border-gray-300 w-full p-2"
-                                        onChange={(e) =>
+                    onChange={(e) =>
                       setShippingInfo({
                         ...shippingIfor,
                         city: e.target.value,
@@ -107,10 +123,10 @@ const Checkout = () => {
                   <label className="block text-gray-700"> Zip code</label>
                   <input
                     type="text"
-                    name="phone"
+                    name="zip"
                     placeholder="Enter zip code"
                     className="border border-gray-300 w-full p-2"
-                                        onChange={(e) =>
+                    onChange={(e) =>
                       setShippingInfo({
                         ...shippingIfor,
                         zip: e.target.value,
@@ -152,10 +168,7 @@ const Checkout = () => {
                     checked={paymentMethod === "dc"}
                     onChange={() => setPaymentMethod("dc")}
                   />
-                  <label className="block text-gray-700 ml-2">
-                    {" "}
-                    Debit Card{" "}
-                  </label>
+                  <label className="block text-gray-700 ml-2">Debit Card</label>
                 </div>
                 {paymentMethod === "dc" && (
                   <div className="bg-gray-300 p-2 rounded-lg">
@@ -242,10 +255,13 @@ const Checkout = () => {
                 ${cart.totalPrice.toFixed(2)}
               </span>
             </div>
+            <button
+              className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800"
+              onClick={handleOrder}
+            >
+              Place Oder
+            </button>
           </div>
-          <button className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800">
-            Place Oder
-          </button>
         </div>
       </div>
     </div>
