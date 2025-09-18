@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ChangeAddress = (setAddress, setModelopen) => {
+const ChangeAddress = ({setAddress, setModelopen}) => {
   const [newAddress, setNewAddress] = useState("");
   const onClose = () => {
     setAddress(newAddress);

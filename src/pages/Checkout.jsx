@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = ({ setOrder }) => {
   const [billingToggle, setBillingToggle] = useState(true);
   const [shippingToggle, setShippingToggle] = useState(false);
   const [paymentToggle, setpaymentToggle] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("cod");
-  const cart = useSelector((state) => state.cart);
+
   const [shippingIfor, setShippingInfor] = useState({
     address: "",
     city: "",
     zip: "",
   });
-
+  const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
   const handleOrder = () => {
@@ -26,7 +26,7 @@ const Checkout = ({ setOrder }) => {
     };
 
     setOrder(newOrder);
-    navigate("/order-confirmation");
+    navigate("/order-confirmationt");
   };
 
   return (
@@ -112,7 +112,7 @@ const Checkout = ({ setOrder }) => {
                     placeholder="Enter City"
                     className="border border-gray-300 w-full p-2"
                     onChange={(e) =>
-                      setShippingInfo({
+                      setShippingInfor({
                         ...shippingIfor,
                         city: e.target.value,
                       })
@@ -127,7 +127,7 @@ const Checkout = ({ setOrder }) => {
                     placeholder="Enter zip code"
                     className="border border-gray-300 w-full p-2"
                     onChange={(e) =>
-                      setShippingInfo({
+                      setShippingInfor({
                         ...shippingIfor,
                         zip: e.target.value,
                       })

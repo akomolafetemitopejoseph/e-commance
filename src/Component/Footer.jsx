@@ -42,7 +42,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="text-lg font-semibold">
-          <h4 className="text-lg font-semibold capitalize">follown u :</h4>
+          <h4 className="text-lg font-semibold capitalize">follown us :</h4>
           <div className="flex space-x-4 mt-4 mb-10">
             <a href="" className="hover:text-gray-400">
               <FaFacebookF />

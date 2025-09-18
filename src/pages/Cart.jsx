@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const [address, setAddress] = useState("main stret, 0012");
+  const [address, setAddress] = useState("main street, 0012");
   const [isModelopen, setModelopen] = useState(false);
 
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const Cart = () => {
                       <h3 className="text-lg font-semibold">{product.name}</h3>
                     </div>
                     <div className="flex space-x-12 items-center">
-                      <p>{product.price}</p>
+                      <p>${product.price}</p>
                       <div className="flex items-center justify-center border-r">
                         <button
                           className="text-xl font-bold px-1.5 border"
@@ -85,12 +85,12 @@ const Cart = () => {
             <div className="md:w-1/3 bg-white p-6 rounded-lg shadow-md h-80">
               <h1 className="text-sm font-semibold mb-5">CART TOTAL</h1>
               <div className="flex justify-between mb-5 border-b border-gray-200 pb-1">
-                <span>Total items</span>
+                <span>TOTAL ITEMS</span>
                 <span>{cart.totalQuantity}</span>
               </div>
               <div className="mb-4 border-b border-gray-200 pb-2">
-                <p>Shopping</p>
-                <p className="ml-2">Shippimg to :</p>
+                <p>Shopping:</p>
+                <p className="ml-2">Shippimg to </p>
                 <span className="text-xs font-bold">{address}</span>
                 <button
                   className="text-blue-500 hover:underline mt-l ml-12"
@@ -107,7 +107,7 @@ const Cart = () => {
                 className="w-full bg-red-600 text-white py-2 hover:bg-red-800"
                 onClick={() => navigate("/checkout")}
               >
-                Proced checkout
+                Proced to checkout
               </button>
             </div>
           </div>

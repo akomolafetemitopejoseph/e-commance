@@ -1,16 +1,60 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Order = ({ order }) => {
+  const navigate = useNavigate();
   return (
-    <div>
-      <h2>Thank you for your order🥰</h2>
+    <div className="mx-auto py-8 px-4 md:px-16 lg:px-24">
+      <h2 className="text-2xl font-semibold mb-4">
+        Thank you for your order🥰
+      </h2>
       <p>
-        your order has been placed successfully, you will recieve an email
+        Your order has been placed successfully, you will recieve an email
         confirmation.
       </p>
-      <div>
-        <h3>order summary</h3>
-        <p>order number: {order.OrderNumber}</p>
+      <div className="mt-6 p-4 border-gray-400 rounded-lg bg-gray-100">
+        <h3 className="text-lg font-semibold mb-2 capitalize">order summary</h3>
+        <p className="capitalize">order number: {order.orderNumber}</p>
+        <div className="mt-4">
+          <h2 className="text-md font-semibold mb-2 capitalize">
+            Shipping information
+          </h2>
+          <p>{order.shippinginformation.name}</p>
+          <p>{order.shippinginformation.address}</p>
+          <p>{order.shippinginformation.city}</p>
+          <p>{order.shippinginformation.zip}</p>
+        </div>
+        <div className="m-4">
+          <h3 className="text-md font-extrabold mb-2 capitalize">
+            items ordered
+          </h3>
+          {order.products.map((product) => (
+            <div key={product.id} className="flex justify-between mt-2">
+              <p>
+                {product.name} (x {product.quantity})
+              </p>
+              <p>${product.price * product.quantity}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex justify-between">
+          <span>Total Price</span>
+          <span className="font-extrabold">${order.totalPrice.toFixed(2)}</span>
+        </div>
+        <div
+          className="mt-6
+        "
+        >
+          <button className="bg-green-500 text-white py-2 px-4 hover:bg-green-600 capitalize">
+            order tracking
+          </button>
+          <button
+            className="ml-4 bg-red-600 text-white py-2 px-4 hover:bg-red-800 capitalize"
+            onClick={() => navigate("/")}
+          >
+            continue shopping
+          </button>
+        </div>
       </div>
     </div>
   );

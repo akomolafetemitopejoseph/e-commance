@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer";
 import Home from "./pages/Home";
@@ -8,6 +8,8 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import { useState } from "react";
 import Order from "./pages/Order";
+import FilterData from "./pages/FilterData";
+import ProductDetail from "./pages/ProductDetail";
 
 const App = () => {
   const [order, setOrder] = useState(null);
@@ -19,8 +21,12 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
-        <Route path="/order-confirmationt" element={< Order order={order} />} />
+        <Route path="/order-confirmationt" element={<Order order={order} />} />
+        <Route path="/filter-data" element={<FilterData />} />
+        <Route path="/order-confirmationt" element={<Order order={order} />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
+
       <Footer />
     </div>
   );
