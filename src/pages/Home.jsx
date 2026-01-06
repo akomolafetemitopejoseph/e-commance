@@ -3,7 +3,7 @@ import { Categories } from "../assets/MockData";
 import heroimage from "../assets/heroimage.jpg";
 import InforSection from "../Component/InforSection";
 import CategorySection from "../Component/CategorySection";
-import { setProducts } from "../Redus/ProductSlice";
+import { setProducts } from "../Redus/ProductSlice"; 
 import { useDispatch, useSelector } from "react-redux";
 import { mackData } from "../Component/MackData";
 import ProductCards from "../Component/ProductCards";
